@@ -76,6 +76,19 @@ public class MonJeu implements IJeuDeBilles{
             return NB_COULEURS;
         }
 
+        /**
+         * Renvoie la couleur de la bille a la position [ligne][colonne]
+         * @return la couleur de la bille (0 - NB_COULEURS - 1) ou VIDE si case vide
+         */
+        public int getCouleur(int ligne, int colonne){
+            if (ligne <= 0 || ligne >= NB_LIGNES || colonne < 0 || colonne >= NB_COLONNES ) {
+                return VIDE:
+            }
+            return  grilleBilles[ligne][colonnes];
+        }
+
+
+
 
 
     }
