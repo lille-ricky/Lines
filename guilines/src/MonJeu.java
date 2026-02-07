@@ -77,6 +77,15 @@ public class MonJeu implements IJeuDeBilles{
         }
 
         /**
+         * Renvoie les nouvelles couleurs qui vont etre ajoutes a la grille.
+         * @return les nouvelles couleurs en queue pour etre rajoutes a la liste.
+         */
+        public int[] getNouvellesCouleurs(){
+            return nouvellesCouleurs;
+        }
+
+
+        /**
          * Renvoie la couleur de la bille a la position [ligne][colonne]
          * @return la couleur de la bille (0 - NB_COULEURS - 1) ou VIDE si case vide
          */
@@ -86,6 +95,36 @@ public class MonJeu implements IJeuDeBilles{
             }
             return  grilleBilles[ligne][colonnes];
         }
+
+        /**
+         * Verifie si otutes les cases de la grille sont remplies, renvoie true si oui et false sinon.
+         * @return true si toutes les cases de la grilles sont remplies, false sinon.
+         */
+        @Override
+        public boolean partieFinie(){
+            for (int i = 0; i < NB_LIGNES; i++){
+                for (int j = 0; j < NB_COLONNES; j++){
+                    if (grilleBilles[i][j] == VIDE) return false;
+                }
+            }
+
+            return true;
+        }
+
+        /**
+         * Reinitialise le score, et remet toutes les grilles a vide.
+         *
+         */
+        public void reinit(){
+            score = 0;
+
+            for (int i = 0; i < NB_LIGNES; i++){
+                for (int j = 0; j < NB_COLONNES; j++){
+                    grilleBilles[i][j] = VIDE;
+                }
+            }
+        }
+
 
 
 
