@@ -38,7 +38,7 @@ public class MonJeu implements IJeuDesBilles{
          * Renvoie le nombre de lignes.
          * @return le nombre de lignes
          */
-        @Override
+        
         public int getNbLignes(){
             return NB_LIGNES;
         }
@@ -193,13 +193,21 @@ public class MonJeu implements IJeuDesBilles{
 
         /**
          * Deplace une bille aux cordonnees (ligD, colD) vers la case (ligA, colA)
+         * @param ligD ligne de depart
+         * @param colD colonne de depart
+         * @param ligA ligned d'arrive
+         * @param colA colonne d'arrive
+         * @return la liste des positions ou les nouvelles billes ont ete ajoutees, null sinon
          */
         public java.util.List<java.awt.Point> deplace(int ligD, int colD,int ligA, int colA){
             if (grilleBilles[ligD][colD] == VIDE) return null;
 
-            if (grilleBilles[ligA][colA] == VIDE) {
-                
-            }
+            if (grilleBilles[ligA][colA] != VIDE) return null;
+
+            grilleBilles[ligA][colA] = grilleBilles[ligD][colD];
+            grilleBilles[ligD][colD] = VIDE;
+
+            return placerNouvellesBilles();
         }
 
 
